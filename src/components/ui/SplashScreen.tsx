@@ -53,16 +53,6 @@ export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
               className="flex justify-center"
             >
               <div className="relative">
-                <motion.div 
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                  className="absolute -inset-12 border border-brand-navy/5 rounded-full"
-                />
-                <motion.div 
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                  className="absolute -inset-16 border border-brand-navy/10 rounded-full border-dashed"
-                />
                 <div className="relative flex items-center justify-center">
                   <Image 
                     src="/favicon.png" 
