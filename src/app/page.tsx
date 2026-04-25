@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,6 +8,7 @@ import { Shield, Cpu, Lock, ChevronRight, Globe, Database, Terminal, X, External
 import { ShootingStars } from "@/components/ui/ShootingStars";
 import { CyberLayer } from "@/components/ui/CyberLayer";
 import { CyberQRCode } from "@/components/ui/CyberQRCode";
+import { SplashScreen } from "@/components/ui/SplashScreen";
 
 const LinkedInIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -35,6 +36,16 @@ const GithubIcon = ({ className }: { className?: string }) => (
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<null | 'sgop' | 'lumor' | 'nostopp'>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Scroll lock when modal or splash is active
+  useEffect(() => {
+    if (selectedProject || !isLoaded) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [selectedProject, isLoaded]);
 
   const projects = {
     sgop: {
@@ -95,7 +106,10 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-white selection:bg-brand-navy selection:text-white">
+    <>
+      <SplashScreen onComplete={() => setIsLoaded(true)} />
+      
+      <main className={`min-h-screen bg-white selection:bg-brand-navy selection:text-white transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       {/* GRID BACKGROUND */}
       <ShootingStars />
       <CyberLayer />
@@ -573,5 +587,6 @@ export default function Home() {
         )}
       </AnimatePresence>
     </main>
+    </>
   );
 }
