@@ -19,18 +19,18 @@ export const CyberQRCode = () => {
       <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-brand-navy rounded-bl-sm" />
       <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-brand-navy rounded-br-sm" />
 
-      {/* REAL QR CODE IMAGE from API */}
+      {/* REAL VCARD QR CODE IMAGE from API */}
       <div className="relative w-[110px] h-[110px] bg-white p-2 rounded-lg">
         <img 
-          src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wockytech.xyz&color=0A1F44" 
-          alt="QR Code Scannable" 
+          src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3ANdiaye%3BAmadou%20Mactar%3B%3B%3B%0AFN%3AAmadou%20Mactar%20Ndiaye%0AORG%3AWockyTech%0ATITLE%3ALead%20Architecte%0AEMAIL%3BTYPE%3DINTERNET%3Andiayeamadoumactar3%40gmail.com%0ATEL%3BTYPE%3DCELL%3A%2B221773519128%0AURL%3Ahttps%3A%2F%2Fwockytech.xyz%0AEND%3AVCARD&color=0A1F44" 
+          alt="vCard QR Code" 
           className="w-full h-full opacity-90 group-hover:opacity-100 transition-opacity"
         />
       </div>
 
       {/* LABEL */}
       <div className="mt-4 text-center">
-         <p className="text-[7px] font-black text-brand-navy uppercase tracking-[0.3em]">Scanner Liaison</p>
+         <p className="text-[7px] font-black text-brand-navy uppercase tracking-[0.3em]">Sauvegarder Contact</p>
       </div>
     </div>
   );
