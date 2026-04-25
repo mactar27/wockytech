@@ -63,12 +63,12 @@ export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
                   transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                   className="absolute -inset-16 border border-brand-navy/10 rounded-full border-dashed"
                 />
-                <div className="relative bg-white p-10 rounded-[40px] shadow-[0_20px_60px_rgba(10,31,68,0.1)] border border-slate-100">
+                <div className="relative flex items-center justify-center">
                   <Image 
                     src="/favicon.png" 
                     alt="WockyTech" 
-                    width={180} 
-                    height={180} 
+                    width={220} 
+                    height={220} 
                     priority
                     className="object-contain"
                   />
