@@ -75,7 +75,7 @@ export default function Intelligence() {
       </nav>
 
       {/* HERO SECTION */}
-      <section className="relative z-10 max-w-4xl mx-auto px-6 pt-20 space-y-12">
+      <section className="relative z-10 max-w-4xl mx-auto px-6 pt-10 md:pt-20 space-y-12">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

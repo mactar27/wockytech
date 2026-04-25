@@ -104,13 +104,15 @@ export default function Home() {
 
       <nav className="relative z-10 flex justify-between items-center px-6 md:px-12 py-8 max-w-7xl mx-auto">
         <div className="relative flex items-center justify-center">
-           <Image 
-             src="/logo.png" 
-             alt="WockyTech Logo" 
-             width={300} 
-             height={120} 
-             className="object-contain hover:scale-105 transition-transform duration-500"
-           />
+           <div className="w-[180px] md:w-[300px]">
+             <Image 
+               src="/logo.png" 
+               alt="WockyTech Logo" 
+               width={300} 
+               height={120} 
+               className="object-contain hover:scale-105 transition-transform duration-500"
+             />
+           </div>
         </div>
         
         <div className="hidden lg:flex items-center space-x-10 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
@@ -151,7 +153,7 @@ export default function Home() {
               <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Système Opérationnel</span>
             </div>
             
-            <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-brand-navy leading-[0.9]">
+            <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-brand-navy leading-[0.9]">
               Technologies<br />
               <span className="text-slate-300">Souveraines.</span>
             </h1>
@@ -216,9 +218,9 @@ export default function Home() {
       </section>
 
       {/* LEAD ARCHITECT SECTION */}
-      <section className="relative z-10 py-32">
+      <section className="relative z-10 py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
