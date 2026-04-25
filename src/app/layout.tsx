@@ -9,7 +9,14 @@ export const metadata: Metadata = {
   description: "Dossier Opérationnelle de l'Architecte Amadou Mactar Ndiaye. Architectures souveraines, systèmes sécurisés et solutions logicielles critiques.",
   icons: {
     icon: "/favicon.png",
-  }
+    apple: "/favicon.png",
+  },
+  themeColor: "#ffffff",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "WockyTech",
+  },
 };
 
 export default function RootLayout({
