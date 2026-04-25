@@ -42,19 +42,9 @@ export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.1 }}
           transition={{ duration: 0.8, ease: "circOut" }}
-          className="fixed inset-0 z-[200] bg-brand-navy flex flex-col items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-[200] bg-white flex flex-col items-center justify-center overflow-hidden"
         >
-          {/* BACKGROUND EFFECTS */}
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle, #2563EB 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
-            <motion.div 
-              animate={{ opacity: [0.1, 0.3, 0.1] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-accent/10 to-transparent" 
-            />
-          </div>
-
-          <div className="relative z-10 w-full max-w-md px-10 space-y-12">
+          <div className="relative z-10 w-full max-w-lg px-10 space-y-16">
             {/* LOGO AREA */}
             <motion.div 
               initial={{ scale: 0.8, opacity: 0 }}
@@ -66,19 +56,19 @@ export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
                 <motion.div 
                   animate={{ rotate: 360 }}
                   transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                  className="absolute -inset-8 border border-white/5 rounded-full"
+                  className="absolute -inset-12 border border-brand-navy/5 rounded-full"
                 />
                 <motion.div 
                   animate={{ rotate: -360 }}
                   transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                  className="absolute -inset-12 border border-white/10 rounded-full border-dashed"
+                  className="absolute -inset-16 border border-brand-navy/10 rounded-full border-dashed"
                 />
-                <div className="bg-white p-6 rounded-3xl shadow-[0_0_50px_rgba(37,99,235,0.3)] border border-white/20">
+                <div className="relative bg-white p-10 rounded-[40px] shadow-[0_20px_60px_rgba(10,31,68,0.1)] border border-slate-100">
                   <Image 
                     src="/favicon.png" 
                     alt="WockyTech" 
-                    width={80} 
-                    height={80} 
+                    width={180} 
+                    height={180} 
                     priority
                     className="object-contain"
                   />
@@ -87,36 +77,37 @@ export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
             </motion.div>
 
             {/* STATUS TEXT */}
-            <div className="space-y-6">
+            <div className="space-y-8">
               <div className="flex justify-between items-end">
                 <div className="space-y-1">
-                  <p className="text-[10px] font-black text-brand-accent uppercase tracking-[0.4em]">Operational Status</p>
-                  <p className="text-white font-mono text-xs font-bold h-4">{status}</p>
+                  <p className="text-[11px] font-black text-brand-accent uppercase tracking-[0.4em]">Operational Status</p>
+                  <p className="text-brand-navy font-mono text-xs font-bold h-4">{status}</p>
                 </div>
-                <p className="text-brand-accent font-mono text-sm font-black">{Math.round(progress)}%</p>
+                <p className="text-brand-navy font-mono text-sm font-black">{Math.round(progress)}%</p>
               </div>
 
               {/* PROGRESS BAR */}
-              <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden border border-white/5">
+              <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden border border-slate-200">
                 <motion.div 
                   initial={{ width: 0 }}
                   animate={{ width: `${progress}%` }}
-                  className="h-full bg-brand-accent shadow-[0_0_15px_rgba(37,99,235,0.8)]"
+                  className="h-full bg-brand-navy shadow-[0_0_20px_rgba(10,31,68,0.2)]"
                 />
               </div>
 
               {/* ICONS STATUS */}
-              <div className="flex justify-between px-2">
+              <div className="flex justify-between px-4">
                 {[Shield, Lock, Cpu, Globe, Activity].map((Icon, i) => (
                   <motion.div
                     key={i}
                     animate={{ 
-                      opacity: progress > (i + 1) * 20 ? 1 : 0.2,
-                      scale: progress > (i + 1) * 20 ? [1, 1.2, 1] : 1
+                      opacity: progress > (i + 1) * 20 ? 1 : 0.15,
+                      scale: progress > (i + 1) * 20 ? [1, 1.3, 1] : 1,
+                      color: progress > (i + 1) * 20 ? "#0A1F44" : "#CBD5E1"
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Icon className="w-4 h-4 text-white" />
+                    <Icon className="w-5 h-5" />
                   </motion.div>
                 ))}
               </div>
@@ -124,15 +115,15 @@ export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
           </div>
 
           {/* BOTTOM DECORATION */}
-          <div className="absolute bottom-12 text-center space-y-2">
-            <p className="text-[8px] font-black text-white/20 uppercase tracking-[0.6em]">WockyTech Sovereign Systems v4.0</p>
-            <div className="flex justify-center space-x-1">
+          <div className="absolute bottom-16 text-center space-y-3">
+            <p className="text-[10px] font-black text-brand-navy/30 uppercase tracking-[0.8em]">WockyTech Sovereign Systems v4.0</p>
+            <div className="flex justify-center space-x-2">
                {[...Array(3)].map((_, i) => (
                  <motion.div 
                    key={i}
                    animate={{ opacity: [0.2, 1, 0.2] }}
                    transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
-                   className="w-1 h-1 bg-brand-accent rounded-full"
+                   className="w-1.5 h-1.5 bg-brand-accent rounded-full"
                  />
                ))}
             </div>
