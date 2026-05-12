@@ -9,7 +9,7 @@ import { ShootingStars } from "@/components/ui/ShootingStars";
 import { CyberLayer } from "@/components/ui/CyberLayer";
 import { CyberQRCode } from "@/components/ui/CyberQRCode";
 import { SplashScreen } from "@/components/ui/SplashScreen";
-import { RecommendationSection } from "@/components/ui/RecommendationSection";
+
 
 const LinkedInIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -456,8 +456,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* RECOMMENDATION SECTION */}
-      <RecommendationSection />
 
       {/* CONTACT SECTION */}
       <section className="relative z-10 py-32 bg-brand-navy text-white overflow-hidden">
