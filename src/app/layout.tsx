@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "WockyTech",
     images: [
       {
-        url: "/og-image.png",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "WockyTech - Technologies Souveraines",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "WockyTech | Technologies Souveraines",
     description: "Architectures souveraines, systèmes sécurisés et solutions logicielles critiques.",
-    images: ["/og-image.png"],
+    images: ["/logo.png"],
   },
   icons: {
     icon: "/favicon.png",

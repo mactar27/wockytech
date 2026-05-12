@@ -9,6 +9,7 @@ import { ShootingStars } from "@/components/ui/ShootingStars";
 import { CyberLayer } from "@/components/ui/CyberLayer";
 import { CyberQRCode } from "@/components/ui/CyberQRCode";
 import { SplashScreen } from "@/components/ui/SplashScreen";
+import { RecommendationSection } from "@/components/ui/RecommendationSection";
 
 const LinkedInIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -53,16 +54,16 @@ export default function Home() {
       tagline: "Briefing de Sécurité • Système-7",
       desc: "Système de Gestion Opérationnelle de la Police : Une infrastructure souveraine conçue pour l'administration moderne du Sénégal.",
       stack: [
-        { l: "Frontend", v: "Next.js 16" },
-        { l: "Base de données", v: "MySQL Core" },
-        { l: "Sécurité", v: "AES-256 / MFA" },
-        { l: "Performance", v: "Vercel Edge" }
+        { l: "Architecture", v: "Next.js / Node.js" },
+        { l: "Langage", v: "TypeScript Full-Stack" },
+        { l: "Sécurité", v: "AES-256 / RBAC / MFA" },
+        { l: "Performance", v: "Vercel Edge Runtime" }
       ],
       views: [
-        { t: "Identité de Marque", d: "Portail d'authentification sécurisé avec identité institutionnelle forte.", img: "/sgop-splash.png" },
-        { t: "Tableau de Bord", d: "Vue globale des opérations, statistiques et monitoring temps réel.", img: "/sgop-dash.png" },
-        { t: "Services Citoyens", d: "Interface simplifiée pour les interactions entre la population et l'État.", img: "/sgop-citizen.png" },
-        { t: "Hub de Cybersécurité", d: "Console de supervision de la sécurité et des cyber-menaces.", img: "/sgop-cyber.png" }
+        { t: "Portail d'Accès Sécurisé", d: "Interface d'authentification robuste avec gestion des rôles (RBAC) pour une sécurité maximale.", img: "/sgop-splash.png" },
+        { t: "Tableau de Bord Stratégique", d: "Vue globale des opérations et monitoring temps réel pour la prise de décision.", img: "/sgop-dash.png" },
+        { t: "Services Citoyens", d: "Interface optimisée pour les interactions entre la population et l'administration.", img: "/sgop-citizen.png" },
+        { t: "Hub de Cybersécurité", d: "Console de supervision des menaces avec validation stricte des flux de données.", img: "/sgop-cyber.png" }
       ]
     },
     lumor: {
@@ -406,10 +407,10 @@ export default function Home() {
 
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
                 {[
-                  { l: "Architecture", v: "Next.js / TypeScript", d: "Systèmes scalables et typage fort." },
-                  { l: "Ecosystème Java", v: "Spring Boot / Angular", d: "Solutions entreprises & robustesse." },
-                  { l: "Souveraineté", v: "Python / PHP / Cyber", d: "Automatisation & backends sécurisés." },
-                  { l: "Données", v: "MySQL / PostgreSQL", d: "Optimisation de requêtes massives." }
+                  { l: "Architecture", v: "Next.js / Node.js", d: "Systèmes Full-Stack modernes et performants." },
+                  { l: "Langages", v: "TypeScript / React", d: "Développement typé et interfaces réactives." },
+                  { l: "Sécurité Étatique", v: "RBAC / AES-256", d: "Protection des données sensibles et gestion des flux." },
+                  { l: "Souveraineté", v: "Infrastructure Dédiée", d: "Maîtrise totale du déploiement et des données." }
                 ].map((skill, i) => (
                   <div key={i} className="space-y-3">
                     <p className="text-[10px] font-black text-brand-accent uppercase tracking-[0.2em]">{skill.l}</p>
@@ -454,6 +455,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* RECOMMENDATION SECTION */}
+      <RecommendationSection />
 
       {/* CONTACT SECTION */}
       <section className="relative z-10 py-32 bg-brand-navy text-white overflow-hidden">

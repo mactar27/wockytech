@@ -150,6 +150,80 @@ export default function Intelligence() {
           </div>
         </div>
 
+        {/* SYSTEM ARCHITECTURE VISUALIZATION */}
+        <div className="pt-20 space-y-16">
+          <div className="space-y-6">
+            <h2 className="text-3xl font-black text-brand-navy uppercase tracking-tight">Architecture Opérationnelle</h2>
+            <div className="h-1 w-20 bg-brand-accent" />
+          </div>
+
+          <div className="relative glass p-8 md:p-12 rounded-[3rem] border border-slate-200 overflow-hidden bg-slate-50/50">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center relative z-10">
+              {/* LAYER 1: ACCESS */}
+              <div className="space-y-6 text-center">
+                <div className="w-20 h-20 bg-white border-2 border-slate-200 rounded-3xl mx-auto flex items-center justify-center shadow-lg">
+                  <Globe className="w-10 h-10 text-brand-navy" />
+                </div>
+                <div>
+                  <h4 className="font-black text-brand-navy uppercase tracking-widest text-xs">Couche Accès</h4>
+                  <p className="text-[10px] text-slate-400 font-bold">Web / Mobile / IoT</p>
+                </div>
+                <div className="flex justify-center">
+                  <div className="w-0.5 h-12 bg-gradient-to-b from-brand-navy to-transparent" />
+                </div>
+              </div>
+
+              {/* LAYER 2: SECURITY & LOGIC */}
+              <div className="space-y-6 text-center">
+                <div className="w-24 h-24 bg-brand-navy text-white rounded-[2rem] mx-auto flex items-center justify-center shadow-2xl relative">
+                  <ShieldCheck className="w-12 h-12" />
+                  <div className="absolute -inset-2 border border-brand-accent/30 rounded-[2.5rem] animate-pulse" />
+                </div>
+                <div>
+                  <h4 className="font-black text-white bg-brand-navy px-4 py-1 rounded-full inline-block uppercase tracking-widest text-xs">Cœur Souverain</h4>
+                  <p className="text-[10px] text-brand-navy font-bold mt-2">Logique Métier • Chiffrement AES-256</p>
+                </div>
+                <div className="flex justify-center">
+                  <div className="w-0.5 h-12 bg-gradient-to-b from-brand-navy to-transparent" />
+                </div>
+              </div>
+
+              {/* LAYER 3: PERSISTENCE */}
+              <div className="space-y-6 text-center">
+                <div className="w-20 h-20 bg-white border-2 border-slate-200 rounded-3xl mx-auto flex items-center justify-center shadow-lg">
+                  <Database className="w-10 h-10 text-brand-navy" />
+                </div>
+                <div>
+                  <h4 className="font-black text-brand-navy uppercase tracking-widest text-xs">Couche Persistance</h4>
+                  <p className="text-[10px] text-slate-400 font-bold">SQL / NoSQL / Cache</p>
+                </div>
+              </div>
+            </div>
+
+            {/* FLOW LINES BACKGROUND */}
+            <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none">
+              <svg width="100%" height="100%" className="stroke-brand-navy stroke-[1]">
+                <line x1="20%" y1="50%" x2="80%" y2="50%" />
+              </svg>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="p-6 bg-white border border-slate-100 rounded-2xl space-y-4 shadow-sm">
+              <h5 className="font-black text-brand-navy text-sm uppercase tracking-widest">Intégrité des Flux</h5>
+              <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                Chaque interaction est validée par un protocole de sécurité strict, garantissant qu'aucune donnée sensible ne transite sans chiffrement de bout en bout.
+              </p>
+            </div>
+            <div className="p-6 bg-white border border-slate-100 rounded-2xl space-y-4 shadow-sm">
+              <h5 className="font-black text-brand-navy text-sm uppercase tracking-widest">Scalabilité Horizontale</h5>
+              <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                Conception modulaire permettant de supporter une montée en charge massive (High Load) sans dégradation des performances pour l'utilisateur final.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* CTA SECTION */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
