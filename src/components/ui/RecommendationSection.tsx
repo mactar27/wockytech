@@ -84,9 +84,7 @@ export const RecommendationSection = () => {
 
                 <div className="pt-12 flex justify-end">
                   <div className="text-center space-y-2">
-                    <div className="w-32 h-16 border-b-2 border-slate-200 border-dashed mb-2 opacity-50" />
                     <p className="text-[10px] font-black text-brand-navy uppercase tracking-widest">La Direction de l'ISEP</p>
-                    <p className="text-[8px] font-bold text-slate-400 uppercase">Sceau Institutionnel</p>
                   </div>
                 </div>
               </div>
