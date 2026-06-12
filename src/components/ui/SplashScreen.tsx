@@ -1,125 +1,147 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Shield, Lock, Cpu, Globe, Activity } from "lucide-react";
 
-export const SplashScreen = ({ onComplete }: { onComplete: () => void }) => {
+const STATUS_STEPS = [
+  { at: 0, text: "Initialisation…" },
+  { at: 25, text: "Chargement du portfolio…" },
+  { at: 55, text: "Préparation des projets…" },
+  { at: 85, text: "Presque prêt…" },
+  { at: 100, text: "Bienvenue." },
+] as const;
+
+const DURATION_MS = 2400;
+const ICONS = [Shield, Lock, Cpu, Globe, Activity];
+
+function getStatus(progress: number): string {
+  let message: string = STATUS_STEPS[0].text;
+  for (const step of STATUS_STEPS) {
+    if (progress >= step.at) message = step.text;
+  }
+  return message;
+}
+
+export function SplashScreen({ onComplete }: { onComplete: () => void }) {
   const [progress, setProgress] = useState(0);
-  const [status, setStatus] = useState("INITIALISATION DU SYSTÈME...");
-  const [show, setShow] = useState(true);
+  const [status, setStatus] = useState<string>(STATUS_STEPS[0].text);
+  const onCompleteRef = useRef(onComplete);
+
+  onCompleteRef.current = onComplete;
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(timer);
-          setTimeout(() => {
-            setShow(false);
-            setTimeout(onComplete, 500);
-          }, 500);
-          return 100;
-        }
-        return prev + 1.5;
-      });
-    }, 30);
+    let frameId = 0;
+    let exitTimeoutId: ReturnType<typeof setTimeout> | undefined;
+    let completeTimeoutId: ReturnType<typeof setTimeout> | undefined;
+    const startTime = performance.now();
 
-    return () => clearInterval(timer);
-  }, [onComplete]);
+    const tick = (now: number) => {
+      const elapsed = now - startTime;
+      const nextProgress = Math.min(100, (elapsed / DURATION_MS) * 100);
 
-  useEffect(() => {
-    if (progress > 20) setStatus("CHARGEMENT DES ARCHITECTURES SOUVERAINES...");
-    if (progress > 50) setStatus("SÉCURISATION DES NŒUDS OPÉRATIONNELS...");
-    if (progress > 80) setStatus("VÉRIFICATION DE L'INTÉGRITÉ DU SYSTÈME...");
-    if (progress === 100) setStatus("SYSTÈME PRÊT. ACCÈS AUTORISÉ.");
-  }, [progress]);
+      setProgress(nextProgress);
+      setStatus(getStatus(nextProgress));
+
+      if (nextProgress < 100) {
+        frameId = requestAnimationFrame(tick);
+        return;
+      }
+
+      exitTimeoutId = setTimeout(() => {
+        completeTimeoutId = setTimeout(() => onCompleteRef.current(), 400);
+      }, 400);
+    };
+
+    frameId = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      clearTimeout(exitTimeoutId);
+      clearTimeout(completeTimeoutId);
+    };
+  }, []);
 
   return (
-    <AnimatePresence>
-      {show && (
+    <motion.div
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+      className="fixed inset-0 z-[200] bg-white flex flex-col items-center justify-center overflow-hidden"
+    >
+      <div
+        className="absolute inset-0 opacity-[0.05] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, #0A1F44 1px, transparent 1px)",
+          backgroundSize: "36px 36px",
+        }}
+      />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-navy/5 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className="relative z-10 w-full max-w-md px-8 space-y-12">
         <motion.div
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.1 }}
-          transition={{ duration: 0.8, ease: "circOut" }}
-          className="fixed inset-0 z-[200] bg-white flex flex-col items-center justify-center overflow-hidden"
+          initial={{ scale: 0.85, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex flex-col items-center space-y-6"
         >
-          <div className="relative z-10 w-full max-w-lg px-10 space-y-16">
-            {/* LOGO AREA */}
-            <motion.div 
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="flex justify-center"
-            >
-              <div className="relative">
-                <div className="relative flex items-center justify-center">
-                  <Image 
-                    src="/favicon.png" 
-                    alt="WockyTech" 
-                    width={220} 
-                    height={220} 
-                    priority
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-            </motion.div>
-
-            {/* STATUS TEXT */}
-            <div className="space-y-8">
-              <div className="flex justify-between items-end">
-                <div className="space-y-1">
-                  <p className="text-[11px] font-black text-brand-accent uppercase tracking-[0.4em]">Operational Status</p>
-                  <p className="text-brand-navy font-mono text-xs font-bold h-4">{status}</p>
-                </div>
-                <p className="text-brand-navy font-mono text-sm font-black">{Math.round(progress)}%</p>
-              </div>
-
-              {/* PROGRESS BAR */}
-              <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden border border-slate-200">
-                <motion.div 
-                  initial={{ width: 0 }}
-                  animate={{ width: `${progress}%` }}
-                  className="h-full bg-brand-navy shadow-[0_0_20px_rgba(10,31,68,0.2)]"
-                />
-              </div>
-
-              {/* ICONS STATUS */}
-              <div className="flex justify-between px-4">
-                {[Shield, Lock, Cpu, Globe, Activity].map((Icon, i) => (
-                  <motion.div
-                    key={i}
-                    animate={{ 
-                      opacity: progress > (i + 1) * 20 ? 1 : 0.15,
-                      scale: progress > (i + 1) * 20 ? [1, 1.3, 1] : 1,
-                      color: progress > (i + 1) * 20 ? "#0A1F44" : "#CBD5E1"
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* BOTTOM DECORATION */}
-          <div className="absolute bottom-16 text-center space-y-3">
-            <p className="text-[10px] font-black text-brand-navy/30 uppercase tracking-[0.8em]">WockyTech Sovereign Systems v4.0</p>
-            <div className="flex justify-center space-x-2">
-               {[...Array(3)].map((_, i) => (
-                 <motion.div 
-                   key={i}
-                   animate={{ opacity: [0.2, 1, 0.2] }}
-                   transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
-                   className="w-1.5 h-1.5 bg-brand-accent rounded-full"
-                 />
-               ))}
-            </div>
+          <div className="relative flex flex-col items-center">
+            <motion.div
+              animate={{ scale: [1, 1.05, 1], opacity: [0.25, 0.45, 0.25] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -inset-8 bg-brand-accent/15 blur-2xl rounded-full"
+            />
+            <Image
+              src="/logo.png"
+              alt="WockyTech"
+              width={300}
+              height={120}
+              priority
+              className="relative object-contain w-[220px] md:w-[280px] h-auto"
+            />
+            <p className="mt-4 text-[10px] font-bold text-slate-400 uppercase tracking-[0.35em]">
+              Technologies Souveraines
+            </p>
           </div>
         </motion.div>
-      )}
-    </AnimatePresence>
+
+        <div className="space-y-5">
+          <div className="flex justify-between items-center">
+            <p className="text-xs font-medium text-slate-500">{status}</p>
+            <p className="text-sm font-black text-brand-navy tabular-nums">{Math.round(progress)}%</p>
+          </div>
+
+          <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+            <motion.div
+              className="h-full rounded-full bg-gradient-to-r from-brand-navy to-brand-accent"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+
+          <div className="flex justify-between px-2">
+            {ICONS.map((Icon, i) => (
+              <motion.div
+                key={i}
+                animate={{
+                  opacity: progress > (i + 1) * 18 ? 1 : 0.2,
+                  scale: progress > (i + 1) * 18 ? 1 : 0.9,
+                }}
+                transition={{ duration: 0.25 }}
+              >
+                <Icon
+                  className="w-5 h-5"
+                  style={{ color: progress > (i + 1) * 18 ? "#0A1F44" : "#CBD5E1" }}
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <p className="absolute bottom-10 text-[9px] font-bold text-slate-300 uppercase tracking-[0.5em]">
+        Amadou Mactar Ndiaye
+      </p>
+    </motion.div>
   );
-};
+}

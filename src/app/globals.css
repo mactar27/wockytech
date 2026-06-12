@@ -5,6 +5,10 @@
   --color-brand-accent: #2563EB;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --foreground-rgb: 15, 23, 42;
   --background-start-rgb: 255, 255, 255;
@@ -19,6 +23,14 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.section-label {
+  @apply text-[10px] font-black text-brand-accent uppercase tracking-[0.4em];
+}
+
+.section-title {
+  @apply text-4xl md:text-5xl font-black text-brand-navy tracking-tighter;
 }
 
 .glass {

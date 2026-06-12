@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ChevronLeft, Cpu, Shield, Globe, Database, Terminal, ShieldCheck, Zap } from "lucide-react";
 import { ShootingStars } from "@/components/ui/ShootingStars";
 import { CyberLayer } from "@/components/ui/CyberLayer";
+import { passportPhoto } from "@/lib/images";
 
 const LinkedInIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -251,11 +252,11 @@ export default function Intelligence() {
                <div className="absolute inset-0 border-2 border-brand-accent rounded-full animate-pulse opacity-20" />
                <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-brand-navy shadow-xl bg-slate-200">
                  <Image 
-                   src="/passport_photo_35x45.jpg" 
+                   src={passportPhoto} 
                    alt="Amadou Mactar Ndiaye"
                    fill
                    priority
-                   className="object-cover"
+                   className="object-cover object-top"
                  />
                </div>
             </div>
