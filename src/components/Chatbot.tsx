@@ -41,7 +41,7 @@ function Bubble({ message }: { message: UIMessage }) {
       className={`flex gap-2 ${isBot ? "items-start" : "items-end flex-row-reverse"}`}
     >
       {isBot && (
-        <span className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-navy shadow-sm ring-1 ring-border p-0.5">
+        <span className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-border p-0.5">
           <Image src="/wocky_icon.png" alt="Wocky" width={24} height={24} className="size-full object-contain" />
         </span>
       )}
@@ -157,7 +157,7 @@ export default function Chatbot() {
                     exit={{ opacity: 0 }}
                     className="flex items-center gap-2"
                   >
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-navy shadow-sm ring-1 border-gray-200 p-0.5">
+                    <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white shadow-sm ring-1 border-gray-200 p-0.5">
                       <Image src="/wocky_icon.png" alt="Wocky" width={24} height={24} className="size-full object-contain" />
                     </span>
                     <span className="flex gap-1 rounded-2xl rounded-tl-sm border border-gray-200 bg-white px-4 py-3">
@@ -226,11 +226,11 @@ export default function Chatbot() {
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
         aria-label="Ouvrir le chatbot"
-        className="relative flex size-16 items-center justify-center rounded-full bg-brand-navy text-white shadow-xl shadow-brand-navy/30"
+        className="relative flex size-16 items-center justify-center rounded-full bg-white text-brand-navy shadow-xl shadow-black/10"
       >
         {!open && (
           <motion.span
-            className="absolute inset-0 rounded-full bg-brand-navy"
+            className="absolute inset-0 rounded-full bg-white"
             animate={{ scale: [1, 1.3], opacity: [0.5, 0] }}
             transition={{ duration: 1.8, repeat: Infinity }}
           />
