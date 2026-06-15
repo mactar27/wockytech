@@ -8,13 +8,13 @@ Services : Architectures souveraines, systèmes sécurisés, solutions logiciell
 Réponds dans la langue de l'utilisateur (français ou anglais), de façon concise et professionnelle. Si tu ne sais pas, propose de contacter directement Amadou Mactar Ndiaye.`
 
 export async function POST(req: Request) {
-  const { messages } = await req.json()
+  const { messages }: { messages: UIMessage[] } = await req.json()
 
   const result = streamText({
     model: google("gemini-1.5-flash"),
     system: SYSTEM_PROMPT,
-    messages,
+    messages: await convertToModelMessages(messages),
   })
 
-  return result.toDataStreamResponse()
+  return result.toTextStreamResponse()
 }
