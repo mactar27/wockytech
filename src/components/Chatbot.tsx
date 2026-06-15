@@ -42,7 +42,7 @@ function Bubble({ message }: { message: UIMessage }) {
     >
       {isBot && (
         <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-brand-navy shadow-sm ring-1 ring-border p-1">
-          <Image src="/favicon.png" alt="Assistant" width={24} height={24} className="size-full object-contain" />
+          <Image src="/chatbot_icon.png" alt="Assistant" width={24} height={24} className="size-full object-contain" />
         </span>
       )}
       <div
@@ -124,7 +124,7 @@ export default function Chatbot() {
           >
             <div className="flex items-center gap-3 bg-brand-navy px-4 py-3.5">
               <span className="relative flex size-10 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-white/10 p-1">
-                <Image src="/favicon.png" alt="Assistant" width={28} height={28} className="size-full object-contain" />
+                <Image src="/chatbot_icon.png" alt="Assistant" width={28} height={28} className="size-full object-contain" />
                 <span className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full bg-emerald-400 ring-2 ring-brand-navy" />
               </span>
               <div className="min-w-0 flex-1">
@@ -158,7 +158,7 @@ export default function Chatbot() {
                     className="flex items-center gap-2"
                   >
                     <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-brand-navy shadow-sm ring-1 border-gray-200 p-1">
-                      <Image src="/favicon.png" alt="Assistant" width={24} height={24} className="size-full object-contain" />
+                      <Image src="/chatbot_icon.png" alt="Assistant" width={24} height={24} className="size-full object-contain" />
                     </span>
                     <span className="flex gap-1 rounded-2xl rounded-tl-sm border border-gray-200 bg-white px-4 py-3">
                       {[0, 1, 2].map((i) => (
@@ -255,7 +255,7 @@ export default function Chatbot() {
               transition={{ duration: 0.15 }}
               className="flex size-full items-center justify-center rounded-full p-2.5"
             >
-              <Image src="/favicon.png" alt="Assistant" width={40} height={40} className="size-full object-contain" priority />
+              <Image src="/chatbot_icon.png" alt="Assistant" width={40} height={40} className="size-full object-contain" priority />
             </motion.span>
           )}
         </AnimatePresence>
