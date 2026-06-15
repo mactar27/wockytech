@@ -41,7 +41,7 @@ function Bubble({ message }: { message: UIMessage }) {
       className={`flex gap-2 ${isBot ? "items-start" : "items-end flex-row-reverse"}`}
     >
       {isBot && (
-        <span className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-border p-0.5">
+        <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-border p-1">
           <Image src="/wocky_icon.png" alt="Wocky" width={24} height={24} className="size-full object-contain" />
         </span>
       )}
@@ -123,7 +123,7 @@ export default function Chatbot() {
             style={{ maxHeight: "min(560px, 80vh)" }}
           >
             <div className="flex items-center gap-3 bg-brand-navy px-4 py-3.5">
-              <span className="relative flex size-12 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-white/10 p-0.5">
+              <span className="relative flex size-10 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-white/10 p-1">
                 <Image src="/wocky_icon.png" alt="Wocky" width={28} height={28} className="size-full object-contain" />
                 <span className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full bg-emerald-400 ring-2 ring-brand-navy" />
               </span>
@@ -157,7 +157,7 @@ export default function Chatbot() {
                     exit={{ opacity: 0 }}
                     className="flex items-center gap-2"
                   >
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white shadow-sm ring-1 border-gray-200 p-0.5">
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white shadow-sm ring-1 border-gray-200 p-1">
                       <Image src="/wocky_icon.png" alt="Wocky" width={24} height={24} className="size-full object-contain" />
                     </span>
                     <span className="flex gap-1 rounded-2xl rounded-tl-sm border border-gray-200 bg-white px-4 py-3">
@@ -226,7 +226,7 @@ export default function Chatbot() {
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
         aria-label="Ouvrir le chatbot"
-        className="relative flex size-16 items-center justify-center rounded-full bg-white text-brand-navy shadow-xl shadow-black/10"
+        className="relative flex size-14 items-center justify-center rounded-full bg-white text-brand-navy shadow-xl shadow-black/10"
       >
         {!open && (
           <motion.span
@@ -253,9 +253,9 @@ export default function Chatbot() {
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: -90, opacity: 0 }}
               transition={{ duration: 0.15 }}
-              className="flex size-full items-center justify-center rounded-full p-1"
+              className="flex size-full items-center justify-center rounded-full p-2.5"
             >
-              <Image src="/wocky_icon.png" alt="Wocky" width={52} height={52} className="size-full object-contain" priority />
+              <Image src="/wocky_icon.png" alt="Wocky" width={40} height={40} className="size-full object-contain" priority />
             </motion.span>
           )}
         </AnimatePresence>
