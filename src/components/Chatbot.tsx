@@ -65,18 +65,13 @@ export default function Chatbot() {
   const bottomRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const { messages, sendMessage, status, error } = useChat({
-    transport: new TextStreamChatTransport({ api: "/api/chat" }),
-    messages: [
+  const { messages, append, status, error } = useChat({
+    api: "/api/chat",
+    initialMessages: [
       {
         id: "welcome",
         role: "assistant",
-        parts: [
-          {
-            type: "text",
-            text: "Bonjour 👋 Je suis Wocky, l'intelligence artificielle de WockyTech. Comment puis-je vous aider ?",
-          },
-        ],
+        content: "Bonjour 👋 Je suis Wocky, l'intelligence artificielle de WockyTech. Comment puis-je vous aider ?",
       },
     ],
   })
@@ -98,7 +93,7 @@ export default function Chatbot() {
     const msg = text.trim()
     if (!msg || isLoading) return
     setInputValue("")
-    sendMessage({ text: msg })
+    append({ role: "user", content: msg })
   }
 
   const handleSubmit = (e: React.FormEvent) => {
