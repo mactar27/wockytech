@@ -49,7 +49,7 @@ function Bubble({ message }: { message: UIMessage }) {
         className={`max-w-[82%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
           isBot
             ? "rounded-tl-sm border border-gray-200 bg-white text-gray-800"
-            : "rounded-tr-sm bg-brand-accent text-white font-medium"
+            : "rounded-tr-sm bg-brand-navy text-white font-medium"
         }`}
         dangerouslySetInnerHTML={{ __html: html }}
       />
@@ -190,7 +190,7 @@ export default function Chatbot() {
                   <button
                     key={s}
                     onClick={() => handleSend(s)}
-                    className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-700 transition-colors hover:border-brand-accent hover:text-brand-accent"
+                    className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-700 transition-colors hover:border-brand-navy hover:text-brand-navy"
                   >
                     {s}
                     <ChevronRight className="size-3" />
@@ -206,12 +206,12 @@ export default function Chatbot() {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder="Écrivez un message…"
-                className="min-w-0 flex-1 rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm outline-none transition-colors placeholder:text-gray-400 focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/20 text-gray-800"
+                className="min-w-0 flex-1 rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm outline-none transition-colors placeholder:text-gray-400 focus:border-brand-navy focus:ring-2 focus:ring-brand-navy/20 text-gray-800"
               />
               <button
                 type="submit"
                 disabled={!inputValue.trim() || isLoading}
-                className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand-accent text-white transition-all hover:bg-brand-accent/90 disabled:opacity-40"
+                className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand-navy text-white transition-all hover:bg-brand-accent disabled:opacity-40"
               >
                 <Send className="size-4" />
               </button>
