@@ -2,33 +2,141 @@
 
 import { motion } from "framer-motion";
 
+/* ─── Official Tech SVG Logos ─────────────────────────────── */
+
+const NextjsIcon = () => (
+  <svg viewBox="0 0 180 180" className="w-4 h-4" fill="none">
+    <mask id="mask0_408_134" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="180" height="180">
+      <circle cx="90" cy="90" r="90" fill="black" />
+    </mask>
+    <g mask="url(#mask0_408_134)">
+      <circle cx="90" cy="90" r="90" fill="black" />
+      <path d="M149.508 157.52L69.142 54H54V125.97H66.1376V69.3836L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z" fill="url(#paint0_linear)" />
+      <rect x="115" y="54" width="12" height="72" fill="url(#paint1_linear)" />
+    </g>
+    <defs>
+      <linearGradient id="paint0_linear" x1="109" y1="116.5" x2="144.5" y2="160.5" gradientUnits="userSpaceOnUse">
+        <stop stopColor="white" />
+        <stop offset="1" stopColor="white" stopOpacity="0" />
+      </linearGradient>
+      <linearGradient id="paint1_linear" x1="121" y1="54" x2="120.799" y2="106.875" gradientUnits="userSpaceOnUse">
+        <stop stopColor="white" />
+        <stop offset="1" stopColor="white" stopOpacity="0" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const TypeScriptIcon = () => (
+  <svg viewBox="0 0 256 256" className="w-4 h-4">
+    <rect width="256" height="256" rx="20" fill="#3178C6" />
+    <path d="M150.5 200.5V221c3.6 1.8 7.9 3.2 12.8 4.1 4.9.9 10 1.4 15.4 1.4 5.2 0 10.2-.5 14.9-1.6 4.7-1.1 8.8-2.8 12.3-5.2 3.5-2.4 6.3-5.5 8.3-9.4 2-3.9 3-8.6 3-14.2 0-4.1-.6-7.7-1.8-10.8-1.2-3.1-2.9-5.9-5.2-8.3-2.3-2.4-5-4.6-8.2-6.5-3.2-1.9-6.8-3.7-10.8-5.4-2.9-1.2-5.5-2.4-7.8-3.5-2.3-1.1-4.2-2.3-5.8-3.5-1.6-1.2-2.8-2.5-3.7-3.9-.9-1.4-1.3-3.1-1.3-4.9 0-1.7.4-3.2 1.2-4.5.8-1.3 1.9-2.4 3.3-3.3 1.4-.9 3.1-1.6 5-2.1 1.9-.5 4-.7 6.3-.7 1.7 0 3.4.1 5.2.4 1.8.3 3.6.7 5.4 1.3 1.8.6 3.5 1.3 5.1 2.2 1.6.9 3.1 1.9 4.4 3v-19.6c-3.2-1.2-6.7-2.1-10.4-2.7-3.7-.6-7.8-.9-12.2-.9-5.2 0-10.1.6-14.7 1.8-4.6 1.2-8.6 3-12 5.5-3.4 2.5-6.1 5.6-8 9.4-1.9 3.8-2.9 8.3-2.9 13.5 0 6.7 1.9 12.4 5.7 17 3.8 4.6 9.6 8.5 17.3 11.6 3.1 1.2 5.9 2.4 8.4 3.6 2.5 1.2 4.7 2.4 6.5 3.7 1.8 1.3 3.2 2.7 4.2 4.3 1 1.6 1.5 3.4 1.5 5.5 0 1.6-.4 3.1-1.1 4.4-.7 1.3-1.8 2.4-3.2 3.4-1.4.9-3.1 1.6-5.2 2.1-2.1.5-4.5.7-7.2.7-4.7 0-9.3-.8-13.9-2.5-4.5-1.7-8.7-4.2-12.4-7.7zm-46.5-68.5H136v-17H64v17h31.5V231h18.5V132z" fill="white" />
+  </svg>
+);
+
+const ReactIcon = () => (
+  <svg viewBox="-11.5 -10.23 23 20.46" className="w-4 h-4">
+    <circle cx="0" cy="0" r="2.05" fill="#61DAFB" />
+    <g stroke="#61DAFB" strokeWidth="1" fill="none">
+      <ellipse rx="11" ry="4.2" />
+      <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+      <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+    </g>
+  </svg>
+);
+
+const NodejsIcon = () => (
+  <svg viewBox="0 0 256 282" className="w-4 h-4">
+    <path d="M116.504 3.58c6.962-3.985 16.03-3.985 22.992 0L231.35 57.056c6.962 3.985 11.496 11.29 11.496 19.259v106.81c0 7.97-4.534 15.274-11.496 19.259l-91.854 53.476c-6.962 3.985-16.03 3.985-22.992 0L24.65 202.384c-6.962-3.985-11.496-11.29-11.496-19.258V76.315c0-7.97 4.534-15.274 11.496-19.26L116.504 3.58z" fill="#539E43" />
+    <path d="M128 74l-55.5 32v64l55.5 32 55.5-32v-64z" fill="white" opacity="0.2" />
+    <text x="128" y="155" textAnchor="middle" fontSize="80" fontWeight="bold" fill="white" fontFamily="Arial">js</text>
+  </svg>
+);
+
+const PostgreSQLIcon = () => (
+  <svg viewBox="0 0 32 32" className="w-4 h-4">
+    <path fill="#336791" d="M23.989 14.884c.127-.093.499-.324.624-.414.388-.256.767-.538 1.114-.847 1.226-1.094 1.805-2.34 1.805-3.809 0-.334-.033-.661-.1-.979-.268-1.31-1.082-2.441-2.27-3.188-.028-.018-.057-.034-.086-.051C23.847 4.922 22.353 4.5 20.75 4.5c-.85 0-1.668.12-2.429.358-.019-.007-.038-.014-.058-.021C17.481 4.623 16.636 4.5 15.75 4.5c-.814 0-1.607.107-2.35.317C12.245 3.683 10.722 3.5 9.5 3.5c-2.03 0-3.738.516-4.826 1.468C3.543 5.926 3 7.213 3 8.75c0 2.102.752 3.88 2.175 5.152.35.316.745.6 1.183.844.121.068.239.128.355.184-.008.076-.013.153-.013.231 0 .918.224 1.777.636 2.54-.005.038-.01.077-.015.115C7.105 18.443 7 19.437 7 20.5c0 2.348.494 4.233 1.468 5.601C9.506 27.522 11.001 28.5 13 28.5c1.226 0 2.33-.353 3.287-.905.306.07.624.108.963.108.5 0 .976-.072 1.428-.198.995.646 2.15 1.031 3.322 1.031 2.1 0 3.689-.96 4.698-2.784.962-1.743 1.302-4.147 1.302-6.752 0-.42-.013-.83-.038-1.228.527-.5.917-1.037 1.094-1.503.269.037.549.056.833.056 1.25 0 2.361-.385 3.111-1.113z" />
+    <path fill="white" d="M16.25 14.5c-.135 0-.268-.008-.4-.024l.4-5.976V14.5zm-1.25 0V9.5l.35 4.976c-.115.016-.232.024-.35.024z" opacity="0.3" />
+  </svg>
+);
+
+const MySQLIcon = () => (
+  <svg viewBox="0 0 256 264" className="w-4 h-4">
+    <path d="M236.282 229.536c-13.168-.334-23.315 1.002-31.83 4.675-2.45 1.002-6.344 1.002-6.679 4.007.668 1.002 1.002 2.339 2.338 3.341 1.671 2.338 4.676 5.343 6.68 7.347 2.338 2.004 5.01 4.342 7.681 6.012 4.676 2.672 10.02 4.343 14.695 7.014 2.672 1.67 5.677 3.341 8.348 4.676.668 1.002 1.336.668 2.004 1.67v-.334c-1.002-.668-1.002-2.004-2.004-2.672-2.004-2.004-4.008-3.674-6.012-5.677-5.343-7.015-10.02-15.03-16.365-20.705-2.004-2.005-6.68-3.007-8.014-5.345h-.334c1.67 0 4.342-1.002 6.012-1.336 3.007-.668 5.677-.334 8.683-1.002.668-.334 1.336-.334 2.004-.668v-.668c-2.004-2.004-3.341-5.01-5.345-6.68-5.676-5.01-12.023-9.685-18.368-14.027-3.34-2.338-7.683-3.674-11.356-5.678-1.002-.668-2.672-1.002-3.34-2.004 2.004-.334 5.01-.668 7.014-1.336 10.02-3.674 19.038-9.685 25.384-18.368.668-1.002 1.67-2.672 1.002-4.008h-.334c-1.336 0-2.338.668-3.34 1.002-8.015 4.342-17.033 7.015-26.386 9.353-1.336.334-2.338.334-3.674.668v-.334c-1.336-1.336-1.67-3.34-2.672-4.676-4.008-5.677-9.352-10.353-13.694-15.696-.668-1.002-1.67-1.67-2.004-2.672l2.338-1.67c5.343-3.674 10.353-7.682 13.694-12.358 1.002-1.67 3.007-4.342 2.004-6.345-10.687-2.004-26.386-.668-37.74 2.338-1.67.334-3.674 1.67-5.343 1.002-.668-.668-1.002-1.336-1.336-2.004-3.341-4.676-6.682-9.685-10.355-14.028-1.002-1.336-2.004-3.007-3.34-4.008-3.007.668-6.68 2.338-9.686 3.674-9.352 4.009-21.041 8.016-28.722 15.364-1.336 1.003-3.341 3.007-4.009 4.677-.668 1.002 0 1.336 0 2.004.334 1.336 1.336 2.338 2.004 3.341 3.341 4.342 6.682 9.018 10.687 12.358 1.67 1.336 3.341 2.338 5.01 3.674 1.003.668 2.338 2.004 3.341 2.004-.668 1.002-1.67 2.338-2.338 3.341-2.672 4.675-4.676 10.02-6.68 15.03-.334.668-.334 1.336-1.002 2.004.334.334.668.668 1.002.668C143.5 181.5 152 178.5 160 175c2.338-1.003 4.676-2.338 7.014-3.007v.334c-.334.668-1.002 1.336-1.67 2.004-3.34 4.009-6.68 8.016-10.02 12.025-2.337 2.671-5.01 5.677-7.013 8.682-.334.334-.668 1.002-.334 1.336 1.002-.334 2.004-.668 3.007-1.002 5.677-2.338 11.355-5.01 17.365-6.346 3.007-.668 6.013-1.002 9.02-1.336.668 0 1.336-.334 2.004-.334 1.336.668 2.672 1.67 4.008 2.338 5.677 4.009 11.022 8.35 17.032 12.025.668.334 1.336 1.002 2.004 1.002.668 1.67-1.67 2.672-2.338 4.008-3.674 6.345-3.34 14.36 0 20.705.334.668.668 1.002 1.002 1.67 1.67-3.007 2.672-6.012 4.342-9.018 2.672-5.344 7.014-9.353 11.356-13.028 2.338-2.004 5.01-3.674 7.014-5.677.668-.668 2.004-1.002 2.004-2.004z" fill="#00758F" />
+  </svg>
+);
+
+const SpringBootIcon = () => (
+  <svg viewBox="0 0 50 50" className="w-4 h-4">
+    <path fill="#77BC1F" d="M49 25C49 38.255 38.255 49 25 49S1 38.255 1 25 11.745 1 25 1s24 10.745 24 24z" />
+    <path fill="white" d="M28.357 11.188c-3.808-.14-7.437 1.33-10.047 3.866-2.84 2.768-4.373 6.63-4.267 10.622.02.693.093 1.383.232 2.058-1.39.49-2.587 1.372-3.48 2.548a7.265 7.265 0 00-1.462 4.403c.016 4.007 3.274 7.256 7.28 7.263h.02c1.78 0 3.501-.654 4.836-1.83a7.3 7.3 0 002.404-4.875c2.218.757 4.594 1.05 6.957.87 5.48-.41 10.237-3.63 12.773-8.51 2.613-5.019 2.37-11.065-.65-15.84a6.58 6.58 0 00-4.596-2.575zm2.256 20.74c-.71.15-1.435.2-2.155.157-1.947-.14-3.83-.817-5.411-1.946l-.008.01a7.43 7.43 0 01-.604 2.613 7.397 7.397 0 01-3.47 3.703l-.002.001a7.26 7.26 0 01-3.35.816h-.014c-3.19-.006-5.79-2.6-5.797-5.79a5.778 5.778 0 011.162-3.502 5.759 5.759 0 012.87-2.083c-.01-.23-.014-.46-.017-.69-.097-3.558 1.25-7 3.79-9.475 2.342-2.278 5.51-3.55 8.836-3.421l.155.005a5.154 5.154 0 013.615 2.004c2.617 4.16 2.81 9.404.53 13.748a12.63 12.63 0 01-2.13 2.85z" />
+    <circle fill="white" cx="25" cy="12.5" r="3" />
+  </svg>
+);
+
+const FlutterIcon = () => (
+  <svg viewBox="0 0 256 317" className="w-4 h-4">
+    <polygon fill="#47C5FB" points="157.565 0 0 157.565 48.91 206.476 255.377 0" />
+    <polygon fill="#47C5FB" points="156.567 145.829 72.381 230.014 121.29 278.924 170.201 230.014 255.377 145.829" />
+    <polygon fill="#00569E" points="72.381 230.014 121.29 278.924 72.381 327.834" />
+    <polygon fill="#00B5F8" points="121.29 278.924 170.201 230.014 121.29 181.105" />
+  </svg>
+);
+
+const TailwindIcon = () => (
+  <svg viewBox="0 0 256 154" className="w-4 h-4">
+    <defs>
+      <linearGradient x1="-2.778%" y1="32%" x2="100%" y2="67.556%" id="tailwindGrad">
+        <stop stopColor="#2298BD" offset="0%" />
+        <stop stopColor="#0ED7B5" offset="100%" />
+      </linearGradient>
+    </defs>
+    <path d="M128 0C93.867 0 72.533 17.067 64 51.2 76.8 34.133 91.733 27.733 108.8 32c9.737 2.434 16.697 9.499 24.401 17.318C145.751 62.057 161.199 76.8 192 76.8c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C174.249 14.743 158.801 0 128 0zM64 76.8C29.867 76.8 8.533 93.867 0 128c12.8-17.067 27.733-23.467 44.8-19.2 9.737 2.434 16.697 9.499 24.401 17.318C81.751 138.857 97.199 153.6 128 153.6c34.133 0 55.467-17.067 64-51.2-12.8 17.067-27.733 23.467-44.8 19.2-9.737-2.434-16.697-9.499-24.401-17.318C110.249 91.543 94.801 76.8 64 76.8z" fill="url(#tailwindGrad)" />
+  </svg>
+);
+
 const skills = [
-  "Next.js", "TypeScript", "React", "Node.js",
-  "PostgreSQL", "MySQL", "Spring Boot", "Flutter",
-  "Tailwind CSS", "Vercel", "JWT / RBAC", "Python",
+  { name: "Next.js", Icon: NextjsIcon },
+  { name: "TypeScript", Icon: TypeScriptIcon },
+  { name: "React", Icon: ReactIcon },
+  { name: "Node.js", Icon: NodejsIcon },
+  { name: "PostgreSQL", Icon: PostgreSQLIcon },
+  { name: "MySQL", Icon: MySQLIcon },
+  { name: "Spring Boot", Icon: SpringBootIcon },
+  { name: "Flutter", Icon: FlutterIcon },
+  { name: "Tailwind CSS", Icon: TailwindIcon },
 ];
 
 export function TechStack() {
   return (
-    <section className="relative z-10 py-16 border-y border-slate-100 bg-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-8">
-        <div className="text-center space-y-2">
-          <p className="text-[10px] font-black text-brand-accent uppercase tracking-[0.4em]">Stack Technique</p>
-          <h2 className="text-2xl md:text-3xl font-black text-brand-navy tracking-tight">Technologies maîtrisées</h2>
-        </div>
-        <div className="flex flex-wrap justify-center gap-3">
-          {skills.map((skill, i) => (
-            <motion.span
-              key={skill}
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.03 }}
-              className="px-4 py-2 text-xs font-bold text-brand-navy bg-slate-50 border border-slate-200 rounded-full hover:border-brand-accent hover:bg-brand-accent/5 transition-colors"
-            >
-              {skill}
-            </motion.span>
-          ))}
+    <section className="relative z-10 py-10 bg-[#F0F3FA]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16 border border-slate-200/60 bg-white p-6 md:p-10 rounded-[32px] shadow-sm">
+          <div className="space-y-1 shrink-0 max-w-[160px]">
+            <p className="text-[9px] font-black text-brand-accent uppercase tracking-[0.4em]">Stack Technique</p>
+            <h2 className="text-lg md:text-xl font-black text-brand-navy tracking-tight">Technologies maîtrisées</h2>
+          </div>
+          <div className="flex flex-wrap gap-2.5 flex-1">
+            {skills.map((skill, i) => (
+              <motion.span
+                key={skill.name}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.04 }}
+                className="flex items-center gap-2 pl-2.5 pr-4 py-2 text-xs font-bold text-slate-700 bg-white border border-slate-200 rounded-full shadow-sm hover:border-brand-accent/40 hover:shadow-md transition-all cursor-default"
+              >
+                {skill.Icon ? (
+                  <span className="w-5 h-5 flex items-center justify-center shrink-0">
+                    <skill.Icon />
+                  </span>
+                ) : (
+                  <span className="w-5 h-5 flex items-center justify-center shrink-0 bg-slate-100 rounded-full text-[9px] font-black text-slate-400">+</span>
+                )}
+                {skill.name}
+              </motion.span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

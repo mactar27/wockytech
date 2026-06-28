@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { Bot, X, Send, Sparkles, ChevronRight } from "lucide-react"
+import { X, Send, ChevronRight } from "lucide-react"
 import { useChat, type UIMessage } from "@ai-sdk/react"
 import { TextStreamChatTransport, isTextUIPart } from "ai"
 
@@ -21,7 +21,7 @@ function getMessageText(message: UIMessage): string {
       .map((part) => part.text)
       .join("")
   }
-  return (message as any).content || (message as any).text || ""
+  return (message as { content?: string, text?: string }).content || (message as { content?: string, text?: string }).text || ""
 }
 
 /* ─── Message bubble ─────────────────────────────────────── */
@@ -60,7 +60,6 @@ function Bubble({ message }: { message: UIMessage }) {
 /* ─── Main chatbot component ─────────────────────────────── */
 export default function Chatbot() {
   const [open, setOpen] = useState(false)
-  const [hasOpened, setHasOpened] = useState(false)
   const [inputValue, setInputValue] = useState("")
   const bottomRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -85,7 +84,6 @@ export default function Chatbot() {
 
   useEffect(() => {
     if (open) {
-      setHasOpened(true)
       setTimeout(() => inputRef.current?.focus(), 300)
     }
   }, [open])

@@ -4,13 +4,15 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const ShootingStar = () => {
-  const [position, setPosition] = useState({ top: "0%", left: "0%", delay: 0 });
+  const [position, setPosition] = useState({ top: "0%", left: "0%", delay: 0, repeatDelay: 3 });
 
   useEffect(() => {
     const randomTop = Math.floor(Math.random() * 60) + "%";
     const randomLeft = Math.floor(Math.random() * 80) + 20 + "%";
     const randomDelay = Math.random() * 10;
-    setPosition({ top: randomTop, left: randomLeft, delay: randomDelay });
+    const repeatDelay = Math.random() * 5 + 3;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setPosition({ top: randomTop, left: randomLeft, delay: randomDelay, repeatDelay });
   }, []);
 
   return (
@@ -25,7 +27,7 @@ const ShootingStar = () => {
       transition={{
         duration: 1.2,
         repeat: Infinity,
-        repeatDelay: Math.random() * 5 + 3,
+        repeatDelay: position.repeatDelay,
         delay: position.delay,
         ease: "linear",
       }}

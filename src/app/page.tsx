@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Shield, Cpu, Lock, ChevronRight, Database, Activity, ShoppingBag, Zap, MapPin, MessageCircle, ExternalLink, Megaphone, Car, TreePine, Shirt, Laptop } from "lucide-react";
+import { Shield, Cpu, Lock, ChevronRight, Database, Activity, ShoppingBag, Zap, MapPin, MessageCircle, ExternalLink, Megaphone, Car, TreePine, Shirt, Laptop, Calendar, Settings, ArrowRight, Download } from "lucide-react";
 
 const clientSites = [
   {
@@ -54,86 +54,123 @@ import { heroImage, passportPhoto } from "@/lib/images";
 export default function Home() {
   return (
     <FirstVisitGate>
-      <main className="min-h-screen bg-white selection:bg-brand-navy selection:text-white">
+      <main className="min-h-screen bg-[#F0F3FA] selection:bg-brand-navy selection:text-white">
       {/* GRID BACKGROUND */}
       <ShootingStars />
       <CyberLayer />
-      <div className="fixed inset-0 z-0 opacity-[0.03] pointer-events-none" 
+      <div className="fixed inset-0 z-0 opacity-[0.02] pointer-events-none" 
            style={{ backgroundImage: 'radial-gradient(circle, #0A1F44 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
       <Navbar />
 
       {/* HERO SECTION */}
-      <section className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-8 pb-20 md:pb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-6 pb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-stretch">
+          {/* LEFT: Text column */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="space-y-8"
+            className="flex flex-col justify-between py-6 space-y-8"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-slate-500">
-              <MapPin className="w-3.5 h-3.5 text-brand-accent" />
-              <span className="text-[10px] font-bold uppercase tracking-widest">Dakar, Sénégal</span>
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-accent/20 bg-brand-accent/5 text-brand-accent">
+                <MapPin className="w-3 h-3" />
+                <span className="text-[9px] font-bold uppercase tracking-[0.2em]">Dakar, Sénégal</span>
+              </div>
+
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-brand-navy leading-[0.9]">
+                Technologies<br />
+                <span className="text-brand-accent">Souveraines.</span>
+              </h1>
+
+              <p className="text-base text-slate-500 max-w-sm leading-relaxed">
+                Architecte Full-Stack — applications web et mobiles sécurisées, prêtes pour la production.
+              </p>
             </div>
 
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-brand-navy leading-[0.92]">
-              Technologies<br />
-              <span className="text-slate-300">Souveraines.</span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-slate-600 max-w-lg leading-relaxed">
-              Architecte Full-Stack — applications web et mobiles sécurisées, prêtes pour la production.
-            </p>
-
-            <div className="grid grid-cols-3 gap-4 py-4 border-y border-slate-100 max-w-md">
+            {/* Stats cards */}
+            <div className="grid grid-cols-3 gap-3">
               {[
-                { v: "6+", l: "Projets" },
-                { v: "17,71", l: "Moyenne ISEP" },
-                { v: "Full-Stack", l: "Expertise" },
+                { v: "6+", l: "Projets", icon: Calendar },
+                { v: "17.71", l: "Moyenne\nISEP", icon: Activity },
+                { v: "Full-Stack", l: "Expertise", icon: Settings },
               ].map((stat) => (
-                <div key={stat.l} className="text-center">
-                  <p className="text-lg font-black text-brand-navy">{stat.v}</p>
-                  <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{stat.l}</p>
+                <div key={stat.l} className="flex items-center gap-3 px-4 py-4 border border-slate-200/80 rounded-2xl bg-white shadow-sm">
+                  <div className="w-9 h-9 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0">
+                    <stat.icon className="w-4 h-4 text-brand-accent" />
+                  </div>
+                  <div className="flex flex-col min-w-0">
+                    <p className="text-sm font-black text-brand-navy leading-tight truncate">{stat.v}</p>
+                    <p className="text-[7px] font-bold text-slate-400 uppercase tracking-[0.15em] mt-0.5 whitespace-pre-line">{stat.l}</p>
+                  </div>
                 </div>
               ))}
             </div>
 
+            {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="#projects"
-                className="px-8 py-4 bg-brand-navy text-white font-bold uppercase tracking-widest text-xs rounded-lg shadow-lg hover:bg-brand-accent transition-colors flex items-center justify-center gap-2"
+                className="px-7 py-3.5 bg-brand-navy text-white font-bold uppercase tracking-[0.15em] text-[10px] rounded-xl shadow-lg hover:bg-brand-accent transition-colors flex items-center justify-center gap-2"
               >
                 Voir mes projets
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-3.5 h-3.5" />
               </Link>
               <Link
                 href="/MonCv.pdf"
                 download="MonCv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 border border-slate-200 text-brand-navy font-bold uppercase tracking-widest text-xs rounded-lg hover:bg-slate-50 transition-colors text-center"
+                className="px-7 py-3.5 border border-slate-200 text-brand-navy font-bold uppercase tracking-[0.15em] text-[10px] rounded-xl hover:bg-white hover:shadow-md transition-all flex items-center justify-center gap-2 bg-white/60"
               >
                 Télécharger le CV
+                <Download className="w-3.5 h-3.5" />
               </Link>
+            </div>
+
+            {/* Security badge */}
+            <div className="flex items-center gap-3 pt-2">
+              <div className="w-8 h-8 rounded-lg bg-brand-accent/10 flex items-center justify-center shrink-0">
+                <Shield className="w-4 h-4 text-brand-accent" />
+              </div>
+              <div>
+                <p className="text-[8px] font-bold text-brand-accent uppercase tracking-[0.25em]">Souveraineté · Sécurité · Performance</p>
+                <p className="text-[9px] font-black text-brand-navy uppercase tracking-widest">Encryption: AES-256</p>
+              </div>
             </div>
           </motion.div>
 
+          {/* RIGHT: Map card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 }}
             className="relative"
           >
-            <div className="absolute -inset-8 bg-brand-navy/5 blur-3xl rounded-full" />
-            <div className="relative overflow-hidden h-80 sm:h-96 md:h-[32rem] lg:h-[40rem] xl:h-[44rem] w-full rounded-2xl border border-slate-100 bg-slate-50/50">
+            <div className="relative h-full min-h-[480px] lg:min-h-0 rounded-[28px] border border-slate-200/60 bg-white/70 overflow-hidden shadow-sm">
+              {/* Subtle gradient in card */}
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/5 via-transparent to-brand-accent/3" />
+              
               <Image
                 src={heroImage}
                 alt="Carte Afrique — WockyTech, Dakar"
                 fill
-                className="object-contain p-4"
+                className="object-contain p-6"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 priority
               />
+
+              {/* Vertical text on right edge */}
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-1">
+                {"DAKAR · SN · NODE · STABLE · ENCRYPTION · AES-256".split(" · ").map((word, i) => (
+                  <span key={i} className="text-[7px] font-black uppercase tracking-[0.3em] text-slate-300" style={{ writingMode: 'vertical-rl' }}>{word}</span>
+                ))}
+              </div>
+
+              {/* WockyTech watermark bottom right */}
+              <div className="absolute bottom-4 right-4 w-9 h-9 rounded-xl border border-slate-200 bg-white flex items-center justify-center shadow-sm">
+                <span className="text-sm font-black text-brand-navy">W</span>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -142,57 +179,49 @@ export default function Home() {
       <TechStack />
 
       {/* LEAD ARCHITECT SECTION */}
-      <section className="relative z-10 py-20 lg:py-32">
+      <section className="relative z-10 py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="relative aspect-[35/45] w-full max-w-[320px] mx-auto"
-            >
-              <div className="absolute -inset-3 border border-brand-navy/10 rounded-[40px] -rotate-3" />
-              <div className="absolute -inset-3 border border-brand-accent/20 rounded-[40px] rotate-3" />
-              <div className="relative h-full w-full bg-slate-200 rounded-[32px] overflow-hidden shadow-2xl">
-                <Image 
-                  src={passportPhoto}
-                  alt="Amadou Mactar Ndiaye"
-                  fill
-                  priority
-                  className="object-cover object-top transition-transform duration-700 hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <p className="text-[10px] font-black text-brand-accent uppercase tracking-[0.4em] mb-2">Lead Architecte</p>
-                  <h3 className="text-2xl font-bold text-white tracking-tight uppercase italic underline decoration-brand-accent decoration-2 underline-offset-4">Amadou Mactar Ndiaye</h3>
-                </div>
-              </div>
-            </motion.div>
-
-            <div className="space-y-10">
-              <div className="space-y-4">
-                <h2 className="text-sm font-black text-brand-accent uppercase tracking-[0.4em]">Identité Digitale</h2>
-                <h3 className="text-4xl md:text-5xl font-black text-brand-navy tracking-tighter italic">L'Ingénierie au Service de la Performance.</h3>
+          <div className="bg-brand-navy rounded-3xl p-8 lg:p-12 shadow-2xl relative overflow-hidden">
+            <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+            
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center relative z-10">
+              <div className="lg:col-span-2">
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="relative aspect-square w-full max-w-[320px] mx-auto overflow-hidden rounded-2xl"
+                >
+                  <div className="absolute inset-0 bg-brand-accent/20 blur-3xl rounded-full" />
+                  <Image 
+                    src={passportPhoto}
+                    alt="Amadou Mactar Ndiaye"
+                    fill
+                    priority
+                    className="object-cover object-top relative z-10"
+                  />
+                </motion.div>
               </div>
 
-              <div className="prose prose-slate max-w-none">
-                <p className="text-lg text-slate-600 leading-relaxed font-medium">
-                  Basé à Dakar, je conçois et développe des applications <span className="text-brand-navy font-bold">web et mobiles robustes</span>, sécurisées et prêtes pour la production. Mon approche est orientée performance, scalabilité et qualité logicielle, avec une forte capacité à transformer un besoin métier en solution digitale complète.
-                </p>
-              </div>
-
-              <div className="space-y-6 pt-6 border-t border-slate-100">
+              <div className="lg:col-span-3 space-y-8 text-white">
                 <div className="space-y-3">
-                  <h4 className="text-[10px] font-black text-brand-navy uppercase tracking-widest border-l-2 border-brand-accent pl-3">Objectif Stratégique</h4>
-                  <p className="text-sm text-slate-500 leading-relaxed italic border-brand-navy pr-12">
-                    Évoluer vers un rôle de <span className="text-brand-navy font-bold">Lead Développeur ou Architecte Logiciel</span>, avec une expertise forte en systèmes distribués et applications à forte charge.
+                  <h2 className="text-xs font-black text-brand-accent uppercase tracking-[0.4em]">Identité Digitale</h2>
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight">L&apos;Ingénierie au Service<br/>de la Performance.</h3>
+                </div>
+
+                <div className="space-y-4">
+                  <p className="text-sm md:text-base text-slate-300 leading-relaxed font-medium">
+                    Basé à Dakar, je conçois et développe des applications <span className="text-white font-bold">web et mobiles robustes</span>, sécurisées et prêtes pour la production.
+                  </p>
+                  <p className="text-sm md:text-base text-slate-300 leading-relaxed font-medium">
+                    Mon approche est orientée performance, scalabilité et qualité logicielle, avec une forte capacité à transformer un besoin métier en solution digitale complète.
                   </p>
                 </div>
 
-                <div className="pt-6">
-                   <Link href="/MonCv.pdf" download="MonCv.pdf" className="inline-flex items-center space-x-3 text-[10px] font-black uppercase tracking-[0.3em] text-brand-navy hover:text-brand-accent transition-colors">
-                      <span>Télécharger le Dossier Complet</span>
-                      <Activity className="w-4 h-4" />
-                   </Link>
+                <div className="pt-4">
+                  <Link href="/MonCv.pdf" download="MonCv.pdf" className="inline-flex items-center space-x-2 text-xs font-bold text-brand-accent hover:text-white transition-colors uppercase tracking-wider">
+                    <span>En savoir plus</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -201,39 +230,33 @@ export default function Home() {
       </section>
 
       {/* CORE SYSTEMS (Projects) */}
-      <section id="projects" className="relative z-10 py-32 bg-slate-50 border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-20">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <div className="space-y-4">
-              <h2 className="text-sm font-black text-brand-accent uppercase tracking-[0.4em]">Systèmes Coeur</h2>
-              <p className="text-4xl md:text-5xl font-black text-brand-navy tracking-tighter italic">Unités Opérationnelles.</p>
-            </div>
+      <section id="projects" className="relative z-10 py-16 bg-white border-y border-slate-200/60">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-8">
+          <div className="space-y-2">
+            <h2 className="text-[10px] font-black text-brand-accent uppercase tracking-[0.4em]">Systèmes Cœur</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* SGOP SYSTEM CARD */}
             <Link href="/sgop">
               <motion.div
                 whileHover={{ scale: 1.02, y: -5 }}
                 whileTap={{ scale: 0.98 }}
-                className="relative z-20 bg-white border-2 border-brand-navy/5 p-8 rounded-3xl shadow-xl hover:border-brand-navy/30 transition-all group cursor-pointer overflow-hidden"
+                className="relative h-full bg-white border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-xl hover:border-brand-navy/20 transition-all flex flex-col"
               >
-                <div className="absolute inset-0 bg-gradient-to-tr from-brand-accent/0 via-brand-accent/[0.03] to-brand-accent/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out pointer-events-none" />
-                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-navy/5 rounded-bl-full -mr-10 -mt-10" />
-                <div className="w-16 h-16 bg-brand-navy text-white rounded-2xl flex items-center justify-center mb-10 shadow-xl relative z-10 group-hover:bg-brand-accent transition-colors">
-                  <Shield className="w-8 h-8" />
+                <div className="w-12 h-12 bg-slate-50 border border-slate-100 text-brand-navy rounded-xl flex items-center justify-center mb-6">
+                  <Shield className="w-6 h-6" />
                 </div>
-                <div className="flex items-center space-x-3 mb-4">
-                  <span className="text-[11px] font-black text-brand-accent uppercase tracking-widest">Projet Souverain</span>
-                  <div className="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse" />
+                <div className="flex items-center space-x-2 mb-3">
+                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Projet Souverain</span>
                 </div>
-                <h3 className="text-3xl font-black text-brand-navy mb-6 tracking-tighter uppercase italic leading-none">SGOP Portail</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-10 group-hover:text-slate-700 transition-colors">
+                <h3 className="text-2xl font-black text-brand-navy mb-4 tracking-tighter uppercase italic">SGOP Portail</h3>
+                <p className="text-slate-500 text-xs leading-relaxed mb-8 flex-1">
                   Infrastructure critique pour la Police Nationale. Centralisation des flux et monitoring temps réel.
                 </p>
-                <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-[0.3em] text-brand-navy border-t border-slate-50 pt-8">
+                <div className="flex items-center space-x-2 text-[10px] font-black uppercase tracking-[0.2em] text-brand-accent mt-auto">
                   <span>Accéder au Briefing</span>
-                  <ChevronRight className="w-4 h-4 text-brand-accent" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </motion.div>
             </Link>
@@ -243,22 +266,21 @@ export default function Home() {
               <motion.div
                 whileHover={{ scale: 1.02, y: -5 }}
                 whileTap={{ scale: 0.98 }}
-                className="relative z-20 bg-white border border-slate-200 p-8 rounded-3xl shadow-lg hover:shadow-2xl hover:border-brand-navy/20 transition-all group cursor-pointer overflow-hidden"
+                className="relative h-full bg-white border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-xl hover:border-brand-navy/20 transition-all flex flex-col"
               >
-                <div className="absolute inset-0 bg-gradient-to-tr from-brand-accent/0 via-brand-accent/[0.03] to-brand-accent/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out pointer-events-none" />
-                <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-10 border border-slate-100 group-hover:bg-brand-navy group-hover:text-white transition-colors">
-                  <Database className="w-8 h-8" />
+                <div className="w-12 h-12 bg-slate-50 border border-slate-100 text-brand-navy rounded-xl flex items-center justify-center mb-6">
+                  <Database className="w-6 h-6" />
                 </div>
-                <div className="flex items-center space-x-3 mb-4">
-                  <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest text-slate-400">Fournisseur Verrier B2B</span>
+                <div className="flex items-center space-x-2 mb-3">
+                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Fournisseur Verrier B2B</span>
                 </div>
-                <h3 className="text-3xl font-black text-brand-navy mb-6 tracking-tighter uppercase italic leading-none">Lumoroptic</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-10 group-hover:text-slate-700 transition-colors">
+                <h3 className="text-2xl font-black text-brand-navy mb-4 tracking-tighter uppercase italic">Lumoroptic</h3>
+                <p className="text-slate-500 text-xs leading-relaxed mb-8 flex-1">
                   Site épuré pour opticiens : saisir le client, la correction, et commander les verres chez le fournisseur.
                 </p>
-                <div className="flex justify-between items-center text-[11px] font-black uppercase tracking-[0.3em] text-slate-400 border-t border-slate-50 pt-8">
+                <div className="flex items-center space-x-2 text-[10px] font-black uppercase tracking-[0.2em] text-brand-accent mt-auto">
                   <span>Vues Opérationnelles</span>
-                  <ChevronRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </motion.div>
             </Link>
@@ -268,39 +290,37 @@ export default function Home() {
               <motion.div
                 whileHover={{ scale: 1.02, y: -5 }}
                 whileTap={{ scale: 0.98 }}
-                className="relative z-20 bg-white border border-slate-200 p-8 rounded-3xl shadow-lg hover:shadow-2xl hover:border-brand-navy/20 transition-all group cursor-pointer overflow-hidden"
+                className="relative h-full bg-white border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-xl hover:border-brand-navy/20 transition-all flex flex-col"
               >
-                <div className="absolute inset-0 bg-gradient-to-tr from-brand-accent/0 via-brand-accent/[0.03] to-brand-accent/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out pointer-events-none" />
-                <div className="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mb-10 border border-slate-100 group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-colors">
-                  <ShoppingBag className="w-8 h-8" />
+                <div className="w-12 h-12 bg-slate-50 border border-slate-100 text-brand-navy rounded-xl flex items-center justify-center mb-6">
+                  <ShoppingBag className="w-6 h-6" />
                 </div>
-                <div className="flex items-center space-x-3 mb-4">
-                  <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest text-slate-400">Moteur de Marque</span>
+                <div className="flex items-center space-x-2 mb-3">
+                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Moteur de Marque</span>
                 </div>
-                <h3 className="text-3xl font-black text-brand-navy mb-6 tracking-tighter uppercase italic leading-none">Nostopp</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-10 group-hover:text-slate-700 transition-colors">
+                <h3 className="text-2xl font-black text-brand-navy mb-4 tracking-tighter uppercase italic">Nostopp</h3>
+                <p className="text-slate-500 text-xs leading-relaxed mb-8 flex-1">
                   Moteur e-commerce personnalisé. Gestion autonome des produits, des commandes et expérience client optimisée.
                 </p>
-                <div className="flex justify-between items-center text-[11px] font-black uppercase tracking-[0.3em] text-slate-400 border-t border-slate-50 pt-8">
+                <div className="flex items-center space-x-2 text-[10px] font-black uppercase tracking-[0.2em] text-brand-accent mt-auto">
                   <span>Vues E-commerce</span>
-                  <ChevronRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </motion.div>
             </Link>
           </div>
 
           {/* CLIENT WEBSITES */}
-          <div className="pt-20 border-t border-slate-100 space-y-10">
-            <div className="space-y-3 max-w-2xl">
-              <h3 className="text-sm font-black text-brand-accent uppercase tracking-[0.4em]">Réalisations Web</h3>
-              <p className="text-2xl md:text-3xl font-black text-brand-navy tracking-tight">Sites clients livrés.</p>
+          <div className="pt-20 border-t border-slate-100 flex flex-col lg:flex-row gap-12">
+            <div className="space-y-4 max-w-sm lg:w-1/4 shrink-0">
+              <h3 className="text-[10px] font-black text-brand-accent uppercase tracking-[0.4em]">Réalisations Web</h3>
+              <p className="text-3xl font-black text-brand-navy tracking-tight">Sites clients livrés.</p>
               <p className="text-sm text-slate-500 leading-relaxed">
-                J&apos;ai également conçu et développé ces sites pour des clients. La plupart sont hébergés sur{" "}
-                <span className="font-bold text-brand-navy">Vercel</span>, en phase de test avant mise en production définitive.
+                Des solutions digitales déployées sur Vercel, testées et optimisées pour la production.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:w-3/4">
               {clientSites.map((site, i) => (
                 <motion.a
                   key={site.url}
@@ -313,28 +333,22 @@ export default function Home() {
                   transition={{ delay: i * 0.05 }}
                   className="group flex flex-col p-6 bg-white border border-slate-200 rounded-2xl hover:border-brand-accent/40 hover:shadow-lg transition-all"
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center group-hover:bg-brand-navy group-hover:text-white transition-colors">
-                      <site.icon className="w-5 h-5" />
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-brand-navy">
+                        <site.icon className="w-4 h-4" />
+                      </div>
+                      <h4 className="text-sm font-black text-brand-navy">{site.name}</h4>
                     </div>
-                    <span
-                      className={`text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-full ${
-                        site.tag === "Production"
-                          ? "bg-green-50 text-green-700 border border-green-200"
-                          : "bg-slate-50 text-slate-500 border border-slate-200"
-                      }`}
-                    >
+                    <span className="text-[8px] font-black uppercase tracking-widest px-2 py-1 rounded-full bg-slate-50 text-slate-400 border border-slate-200">
                       {site.tag}
                     </span>
                   </div>
-                  <h4 className="text-lg font-black text-brand-navy mb-2 group-hover:text-brand-accent transition-colors">
-                    {site.name}
-                  </h4>
-                  <p className="text-xs text-slate-500 leading-relaxed flex-1">{site.desc}</p>
-                  <span className="inline-flex items-center gap-1.5 mt-4 text-[10px] font-black uppercase tracking-widest text-brand-navy">
-                    Visiter le site
-                    <ExternalLink className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity" />
-                  </span>
+                  <p className="text-xs text-slate-500 leading-relaxed flex-1 mb-4">{site.desc}</p>
+                  <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-[0.2em] text-brand-accent mt-auto">
+                    <span>Visiter le site</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </div>
                 </motion.a>
               ))}
             </div>
@@ -393,7 +407,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-20">
           <div className="text-center space-y-4">
             <h2 className="text-sm font-black text-brand-accent uppercase tracking-[0.4em]">Processus Stratégique</h2>
-            <p className="text-4xl md:text-5xl font-black text-brand-navy tracking-tighter italic">Méthodologie d'Exécution.</p>
+            <p className="text-4xl md:text-5xl font-black text-brand-navy tracking-tighter italic">Méthodologie d&apos;Exécution.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -438,7 +452,7 @@ export default function Home() {
           </div>
 
           <p className="text-slate-400 text-lg max-w-2xl mx-auto italic">
-            "La souveraineté numérique est le fondement de l'indépendance moderne. Construisons ensemble vos infrastructures critiques."
+            &quot;La souveraineté numérique est le fondement de l&apos;indépendance moderne. Construisons ensemble vos infrastructures critiques.&quot;
           </p>
 
           <div className="pt-8 flex flex-col lg:flex-row items-center justify-center gap-12">

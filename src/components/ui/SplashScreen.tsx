@@ -29,7 +29,9 @@ export function SplashScreen({ onComplete }: { onComplete: () => void }) {
   const [status, setStatus] = useState<string>(STATUS_STEPS[0].text);
   const onCompleteRef = useRef(onComplete);
 
-  onCompleteRef.current = onComplete;
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   useEffect(() => {
     let frameId = 0;

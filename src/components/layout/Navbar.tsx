@@ -3,12 +3,14 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronRight } from "lucide-react";
 import { SocialIcons } from "@/components/ui/SocialIcons";
 
 const navLinks = [
   { href: "/#projects", label: "Projets" },
-  { href: "/intelligence", label: "Intelligence" },
+  { href: "/#expertise", label: "Expertise" },
+  { href: "/#technologies", label: "Technologies" },
+  { href: "/#about", label: "À Propos" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -42,9 +44,9 @@ export function Navbar() {
             href="https://wa.me/221773519128"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-brand-navy py-3 px-6 rounded-lg text-white hover:bg-brand-accent transition-colors"
+            className="flex items-center gap-2 bg-brand-navy py-2.5 px-6 rounded-lg text-white hover:bg-brand-accent transition-colors"
           >
-            Contact
+            Contact <ChevronRight className="w-4 h-4" />
           </Link>
         </div>
 
@@ -59,7 +61,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="lg:hidden border-t border-slate-100 bg-white/95 backdrop-blur-md px-6 py-6 space-y-4">
+        <div className="lg:hidden border-t border-slate-100 bg-[#F0F3FA]/95 backdrop-blur-md px-6 py-6 space-y-4">
           {navLinks.map((link) => (
             <Link
               key={link.href}

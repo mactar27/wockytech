@@ -11,6 +11,7 @@ export function FirstVisitGate({ children }: { children: React.ReactNode }) {
   const [phase, setPhase] = useState<Phase>("checking");
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPhase(hasCompletedFirstVisit() ? "done" : "splash");
   }, []);
 

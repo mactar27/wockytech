@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+
 
 const metadata = [
   "PROTOCOL_V4: ACTIVE",
