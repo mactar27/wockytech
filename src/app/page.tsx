@@ -73,9 +73,9 @@ const clientSites = [
     icon: RevotexIcon,
   },
   {
-    name: "Baolab Multimedia",
+    name: "BAOLAB INFO",
     url: "https://baolab-multimedia.com/",
-    desc: "Agence de production multimédia et audiovisuelle.",
+    desc: "La technologie qu'il vous faut : vente de matériels informatiques, maintenance et services.",
     tag: "Production",
     icon: BaolabIcon,
   },
