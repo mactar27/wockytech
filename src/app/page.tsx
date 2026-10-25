@@ -5,7 +5,6 @@ import Link from "next/link";
 import { 
   ArrowRight, 
   ExternalLink, 
-  Code2, 
   Smartphone, 
   Sparkles, 
   Gauge,
@@ -97,16 +96,14 @@ export default function Home() {
               {/* 2 CTA Buttons exacts */}
               <div className="flex flex-wrap items-center gap-3.5 pt-1">
                 <Link
-                  href="https://wa.me/221773519128"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/contact"
                   className="inline-flex items-center gap-2 bg-[#0066FF] hover:bg-[#0052cc] text-white font-medium text-xs sm:text-sm px-6 py-3 rounded-full shadow-[0_4px_16px_rgba(0,102,255,0.3)] hover:shadow-[0_6px_22px_rgba(0,102,255,0.45)] transition-all duration-200"
                 >
                   <span>Demander un devis</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
-                  href="#projets"
+                  href="/projets"
                   className="inline-flex items-center gap-2 border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs sm:text-sm px-6 py-3 rounded-full transition-all duration-200 shadow-sm"
                 >
                   Nos réalisations
@@ -198,81 +195,108 @@ export default function Home() {
             </p>
           </div>
 
-          {/* 4 Cards Grid */}
+          {/* 4 Cards Grid with Voir plus links */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
             {/* Card 1: Sites Web */}
-            <div className="group bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,102,255,0.08)] hover:border-blue-100 transition-all duration-300 flex flex-col justify-between">
+            <Link
+              href="/services#sites-web"
+              className="group bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,102,255,0.08)] hover:border-blue-100 transition-all duration-300 flex flex-col justify-between"
+            >
               <div className="space-y-4">
                 <div className="w-11 h-11 rounded-xl bg-[#0066FF] text-white flex items-center justify-center font-mono font-bold text-sm shadow-md">
                   &lt;/&gt;
                 </div>
-                <h3 className="text-base font-bold text-[#0A192F]">
+                <h3 className="text-base font-bold text-[#0A192F] group-hover:text-[#0066FF] transition-colors">
                   Sites Web
                 </h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
                   Sites vitrines, e-commerce et plateformes web modernes, rapides et optimisés pour le SEO.
                 </p>
               </div>
-              <div className="pt-6 flex justify-end">
-                <ArrowRight className="w-4 h-4 text-[#0066FF] group-hover:translate-x-1 transition-transform" />
+              <div className="pt-6 flex items-center justify-between text-xs font-semibold text-[#0066FF]">
+                <span>Voir plus</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
               </div>
-            </div>
+            </Link>
 
             {/* Card 2: Applications Mobiles */}
-            <div className="group bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,102,255,0.08)] hover:border-blue-100 transition-all duration-300 flex flex-col justify-between">
+            <Link
+              href="/services#applications-mobiles"
+              className="group bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,102,255,0.08)] hover:border-blue-100 transition-all duration-300 flex flex-col justify-between"
+            >
               <div className="space-y-4">
                 <div className="w-11 h-11 rounded-xl bg-[#0066FF] text-white flex items-center justify-center shadow-md">
                   <Smartphone className="w-5 h-5" />
                 </div>
-                <h3 className="text-base font-bold text-[#0A192F]">
+                <h3 className="text-base font-bold text-[#0A192F] group-hover:text-[#0066FF] transition-colors">
                   Applications Mobiles
                 </h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
                   Développement iOS &amp; Android performantes, intuitives et sur mesure.
                 </p>
               </div>
-              <div className="pt-6 flex justify-end">
-                <ArrowRight className="w-4 h-4 text-[#0066FF] group-hover:translate-x-1 transition-transform" />
+              <div className="pt-6 flex items-center justify-between text-xs font-semibold text-[#0066FF]">
+                <span>Voir plus</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
               </div>
-            </div>
+            </Link>
 
             {/* Card 3: Design Moderne */}
-            <div className="group bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,102,255,0.08)] hover:border-blue-100 transition-all duration-300 flex flex-col justify-between">
+            <Link
+              href="/services#design-moderne"
+              className="group bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,102,255,0.08)] hover:border-blue-100 transition-all duration-300 flex flex-col justify-between"
+            >
               <div className="space-y-4">
                 <div className="w-11 h-11 rounded-xl bg-[#0066FF] text-white flex items-center justify-center shadow-md">
                   <Sparkles className="w-5 h-5" />
                 </div>
-                <h3 className="text-base font-bold text-[#0A192F]">
+                <h3 className="text-base font-bold text-[#0A192F] group-hover:text-[#0066FF] transition-colors">
                   Design Moderne
                 </h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
                   Des interfaces élégantes et expériences utilisateur fluides et intuitives.
                 </p>
               </div>
-              <div className="pt-6 flex justify-end">
-                <ArrowRight className="w-4 h-4 text-[#0066FF] group-hover:translate-x-1 transition-transform" />
+              <div className="pt-6 flex items-center justify-between text-xs font-semibold text-[#0066FF]">
+                <span>Voir plus</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
               </div>
-            </div>
+            </Link>
 
             {/* Card 4: Solutions Performantes */}
-            <div className="group bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,102,255,0.08)] hover:border-blue-100 transition-all duration-300 flex flex-col justify-between">
+            <Link
+              href="/services#solutions-performantes"
+              className="group bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_30px_rgba(0,102,255,0.08)] hover:border-blue-100 transition-all duration-300 flex flex-col justify-between"
+            >
               <div className="space-y-4">
                 <div className="w-11 h-11 rounded-xl bg-[#0066FF] text-white flex items-center justify-center shadow-md">
                   <Gauge className="w-5 h-5" />
                 </div>
-                <h3 className="text-base font-bold text-[#0A192F]">
+                <h3 className="text-base font-bold text-[#0A192F] group-hover:text-[#0066FF] transition-colors">
                   Solutions Performantes
                 </h3>
                 <p className="text-xs text-slate-500 leading-relaxed">
                   Architectures fiables, sécurisées et évolutives pour vos projets d&apos;aujourd&apos;hui et de demain.
                 </p>
               </div>
-              <div className="pt-6 flex justify-end">
-                <ArrowRight className="w-4 h-4 text-[#0066FF] group-hover:translate-x-1 transition-transform" />
+              <div className="pt-6 flex items-center justify-between text-xs font-semibold text-[#0066FF]">
+                <span>Voir plus</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
               </div>
-            </div>
+            </Link>
 
+          </div>
+
+          {/* Section CTA: Voir tous les services */}
+          <div className="mt-12 text-center">
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 text-xs font-bold text-[#0066FF] hover:text-[#0052cc] py-2 px-6 rounded-full border border-blue-200 hover:border-blue-400 bg-blue-50/50 hover:bg-blue-50 transition-all"
+            >
+              <span>Découvrir tous nos services en détail</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
 
         </div>
@@ -317,11 +341,11 @@ export default function Home() {
                 Mes réalisations
               </h2>
               <p className="text-xs text-slate-500 leading-relaxed">
-                Découvrez quelques-uns des sites et applications que j&apos;ai développés.
+                Découvrez quelques-uns des sites et applications que j&apos;ai développés pour nos clients partenaires.
               </p>
               <div className="pt-2">
                 <Link
-                  href="#contact"
+                  href="/projets"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-blue-600 text-[#0066FF] hover:bg-blue-50 text-xs font-semibold transition-colors"
                 >
                   <span>Voir tous mes projets</span>
@@ -356,17 +380,98 @@ export default function Home() {
 
             {/* Right: 2x2 Showcase Card Preview in High Definition */}
             <div className="lg:col-span-4 flex justify-center">
-              <div className="w-full max-w-[420px] bg-white rounded-2xl p-2.5 shadow-xl border border-slate-100 hover:shadow-2xl transition-shadow duration-300">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/projects-showcase-crisp.png"
-                  alt="Aperçu net des réalisations WockyTech"
-                  className="w-full h-auto object-cover rounded-xl"
-                  loading="lazy"
-                />
-              </div>
+              <Link href="/projets" className="block w-full max-w-[420px] group">
+                <div className="bg-white rounded-2xl p-2.5 shadow-xl border border-slate-100 group-hover:shadow-2xl group-hover:border-blue-200 transition-all duration-300">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/projects-showcase-crisp.png"
+                    alt="Aperçu net des réalisations WockyTech"
+                    className="w-full h-auto object-cover rounded-xl group-hover:scale-[1.01] transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  <div className="pt-2 px-1 flex items-center justify-between text-[11px] font-semibold text-slate-500 group-hover:text-[#0066FF] transition-colors">
+                    <span>Voir la galerie complète</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Link>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════
+          SECTION: APERÇU AVIS CLIENTS & TÉMOIGNAGES
+      ══════════════════════════════════════════════════════════════ */}
+      <section className="py-16 bg-slate-50/60 border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+            <div className="space-y-2">
+              <p className="text-xs font-bold text-[#0066FF] uppercase tracking-wider">
+                Témoignages
+              </p>
+              <h2 className="text-3xl font-black text-[#0A192F] tracking-tight">
+                Ils nous font confiance
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
+                Découvrez comment nous accompagnons nos clients au quotidien dans la réalisation de leurs plateformes.
+              </p>
+            </div>
+            <Link
+              href="/avis"
+              className="inline-flex items-center gap-2 text-xs font-bold text-[#0066FF] hover:text-[#0052cc] py-2.5 px-5 rounded-full border border-blue-200 bg-white hover:bg-blue-50 transition-all shrink-0"
+            >
+              <span>Voir tous les avis clients</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-3">
+              <div className="flex items-center gap-1 text-amber-400">
+                {"★★★★★"}
+              </div>
+              <h3 className="text-sm font-bold text-[#0A192F]">
+                &ldquo;Refonte digitale au-delà de nos attentes&rdquo;
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Notre nouvelle plateforme est ultra-rapide, moderne et nous apporte de nouveaux prospects chaque semaine.
+              </p>
+              <p className="text-[11px] font-bold text-slate-700 pt-2 border-t border-slate-100">
+                EZK Agency Dakar
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-3">
+              <div className="flex items-center gap-1 text-amber-400">
+                {"★★★★★"}
+              </div>
+              <h3 className="text-sm font-bold text-[#0A192F]">
+                &ldquo;Un e-commerce ultra fluide et robuste&rdquo;
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                La boutique encaisse les pics de trafic lors de nos lancements sans aucun ralentissement. L&apos;interface mobile est parfaite.
+              </p>
+              <p className="text-[11px] font-bold text-slate-700 pt-2 border-t border-slate-100">
+                Nonstopp Shop
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-3">
+              <div className="flex items-center gap-1 text-amber-400">
+                {"★★★★★"}
+              </div>
+              <h3 className="text-sm font-bold text-[#0A192F]">
+                &ldquo;Design luxueux et expérience d&apos;achat parfaite&rdquo;
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed">
+                Le résultat est magnifique, nos clients adorent la clarté du site et nos ventes en ligne ont progressé immédiatement.
+              </p>
+              <p className="text-[11px] font-bold text-slate-700 pt-2 border-t border-slate-100">
+                Dia&apos;Rama Cosmétiques
+              </p>
+            </div>
           </div>
         </div>
       </section>
