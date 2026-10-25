@@ -17,9 +17,19 @@ import { Footer } from "@/components/layout/Footer";
 // ── Real projects list from user ──────────────────────────────────────────────
 const userProjects = [
   {
+    name: "dilyaa.com",
+    domain: "Plateforme lifestyle, soins, accessoires & conseils de style",
+    url: "https://www.dilyaa.com/",
+  },
+  {
     name: "nonstopp.shop",
     domain: "Boutique en ligne mode, streetwear & articles exclusifs",
     url: "https://nonstopp.shop/",
+  },
+  {
+    name: "vyynaa.com",
+    domain: "Boutique en ligne cosmétique, beauté & articles lifestyle",
+    url: "https://www.vyynaa.com/",
   },
   {
     name: "ezkagency.com",
@@ -27,24 +37,14 @@ const userProjects = [
     url: "https://www.ezkagency.com/",
   },
   {
-    name: "knitta-corner.shop",
-    domain: "Boutique mode, streetwear haut de gamme & accessoires",
-    url: "https://knitta-corner.shop/",
-  },
-  {
     name: "dia-rama.com",
     domain: "Marque et cosmétiques haut de gamme inspirés de la beauté africaine",
     url: "https://www.dia-rama.com/",
   },
   {
-    name: "dilyaa.com",
-    domain: "Plateforme lifestyle, soins, accessoires & conseils de style",
-    url: "https://www.dilyaa.com/",
-  },
-  {
-    name: "vyynaa.com",
-    domain: "Boutique en ligne cosmétique, beauté & articles lifestyle",
-    url: "https://www.vyynaa.com/",
+    name: "knitta-corner.shop",
+    domain: "Boutique mode, streetwear haut de gamme & accessoires",
+    url: "https://knitta-corner.shop/",
   },
 ];
 
