@@ -103,7 +103,7 @@ export default function Home() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
-                  href="/projets"
+                  href="#projets"
                   className="inline-flex items-center gap-2 border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-medium text-xs sm:text-sm px-6 py-3 rounded-full transition-all duration-200 shadow-sm"
                 >
                   Nos réalisations
@@ -345,10 +345,10 @@ export default function Home() {
               </p>
               <div className="pt-2">
                 <Link
-                  href="/projets"
+                  href="/contact"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-blue-600 text-[#0066FF] hover:bg-blue-50 text-xs font-semibold transition-colors"
                 >
-                  <span>Voir tous mes projets</span>
+                  <span>Démarrer un projet</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -380,21 +380,15 @@ export default function Home() {
 
             {/* Right: 2x2 Showcase Card Preview in High Definition */}
             <div className="lg:col-span-4 flex justify-center">
-              <Link href="/projets" className="block w-full max-w-[420px] group">
-                <div className="bg-white rounded-2xl p-2.5 shadow-xl border border-slate-100 group-hover:shadow-2xl group-hover:border-blue-200 transition-all duration-300">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/projects-showcase-crisp.png"
-                    alt="Aperçu net des réalisations WockyTech"
-                    className="w-full h-auto object-cover rounded-xl group-hover:scale-[1.01] transition-transform duration-300"
-                    loading="lazy"
-                  />
-                  <div className="pt-2 px-1 flex items-center justify-between text-[11px] font-semibold text-slate-500 group-hover:text-[#0066FF] transition-colors">
-                    <span>Voir la galerie complète</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
+              <div className="w-full max-w-[420px] bg-white rounded-2xl p-2.5 shadow-xl border border-slate-100 hover:shadow-2xl transition-all duration-300">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/projects-showcase-crisp.png"
+                  alt="Aperçu net des réalisations WockyTech"
+                  className="w-full h-auto object-cover rounded-xl"
+                  loading="lazy"
+                />
+              </div>
             </div>
 
           </div>

@@ -96,10 +96,8 @@ export function Navbar() {
           </div>
 
           <Link
-            href="/projets"
-            className={`py-1 transition-colors ${
-              pathname === "/projets" ? "text-blue-600 font-bold after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-blue-600 after:rounded-full" : "hover:text-blue-600"
-            }`}
+            href="/#projets"
+            className="hover:text-blue-600 transition-colors py-1"
           >
             Projets
           </Link>
@@ -161,7 +159,7 @@ export function Navbar() {
             Services
           </Link>
           <Link
-            href="/projets"
+            href="/#projets"
             onClick={() => setOpen(false)}
             className="block text-sm font-semibold text-slate-700 hover:text-blue-600 py-1"
           >
