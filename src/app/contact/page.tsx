@@ -57,8 +57,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs font-semibold text-slate-400">Email professionnel</p>
-                    <a href="mailto:contact@wockytech.xyz" className="text-sm font-bold text-slate-900 hover:text-[#0066FF] transition-colors">
-                      contact@wockytech.xyz
+                    <a href="mailto:ndiayeamadoumactar3@gmail.com" className="text-sm font-bold text-slate-900 hover:text-[#0066FF] transition-colors">
+                      ndiayeamadoumactar3@gmail.com
                     </a>
                   </div>
                 </div>
@@ -114,7 +114,7 @@ export default function ContactPage() {
               <h2 className="text-2xl font-black text-[#0A192F]">
                 Envoyez-nous un message
               </h2>
-              <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); window.location.href="mailto:contact@wockytech.xyz"; }}>
+              <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); window.location.href="mailto:ndiayeamadoumactar3@gmail.com"; }}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-slate-700">Nom complet *</label>

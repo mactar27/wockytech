@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, ArrowRight } from "lucide-react";
+import { SocialIcons } from "@/components/ui/SocialIcons";
 
 export function Footer() {
   return (
@@ -53,14 +54,20 @@ export function Footer() {
             <div className="space-y-2 text-xs text-slate-300">
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-                <a href="mailto:contact@wockytech.xyz" className="hover:text-blue-400 transition-colors">
-                  contact@wockytech.xyz
+                <a href="mailto:ndiayeamadoumactar3@gmail.com" className="hover:text-blue-400 transition-colors">
+                  ndiayeamadoumactar3@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-blue-400 shrink-0" />
                 <span>Dakar, Sénégal</span>
               </div>
+            </div>
+
+            {/* Social Media Links */}
+            <div className="pt-1">
+              <p className="text-[11px] font-semibold text-slate-400 mb-2">Suivez-nous</p>
+              <SocialIcons className="w-4 h-4" />
             </div>
 
             <div className="pt-2">
